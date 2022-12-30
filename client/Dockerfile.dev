@@ -1,0 +1,9 @@
+# etapa de compilación dev
+FROM node:16.18-alpine3.15 as dev-stage
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+COPY . /app
+
+EXPOSE 8082
+CMD [ "npm", "run" ,"serve" ]

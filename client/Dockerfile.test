@@ -1,0 +1,7 @@
+# etapa de compilación test
+FROM node:16.18-alpine3.15 as test-stage
+WORKDIR /test
+COPY package.json /test
+RUN npm install
+COPY . /test
+CMD [ "npm", "run" ,"test:unit" ]
